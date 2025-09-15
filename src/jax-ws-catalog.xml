@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/wsGanttProject/srvEmpresa?Tester" uri="wsdl/localhost_8080/wsGanttProject/srvEmpresa.tester"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvEmpresa?wsdl" uri="wsdl/localhost_8080/wsGanttProject/srvEmpresa.wsdl"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvEmpresa?xsd=1" uri="wsdl/localhost_8080/wsGanttProject/srvEmpresa.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvProyecto?wsdl" uri="wsdl/localhost_8080/wsGanttProject/srvProyecto.wsdl"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvProyecto?xsd=1" uri="wsdl/localhost_8080/wsGanttProject/srvProyecto.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvTarea?wsdl" uri="wsdl/localhost_8080/wsGanttProject/srvTarea.wsdl"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvTarea?xsd=1" uri="wsdl/localhost_8080/wsGanttProject/srvTarea.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvActividad?wsdl" uri="wsdl/localhost_8080/wsGanttProject/srvActividad.wsdl"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvActividad?xsd=1" uri="wsdl/localhost_8080/wsGanttProject/srvActividad.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvUsuario?wsdl" uri="wsdl/localhost_8080/wsGanttProject/srvUsuario.wsdl"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvUsuario?xsd=1" uri="wsdl/localhost_8080/wsGanttProject/srvUsuario.xsd_1.xsd"/>
+</catalog>

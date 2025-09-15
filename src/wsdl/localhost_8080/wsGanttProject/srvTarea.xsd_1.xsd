@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3.payara-p6 (FISH-5811-df8dba8; 2021-12-02T15:42:59+0000) JAXWS-RI/2.3.2.payara-p4 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://Servicio/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Servicio/">
+
+<xs:element name="deleteTarea" type="tns:deleteTarea"/>
+
+<xs:element name="deleteTareaResponse" type="tns:deleteTareaResponse"/>
+
+<xs:element name="insertTarea" type="tns:insertTarea"/>
+
+<xs:element name="insertTareaResponse" type="tns:insertTareaResponse"/>
+
+<xs:element name="listarTarea" type="tns:listarTarea"/>
+
+<xs:element name="listarTareaPorID" type="tns:listarTareaPorID"/>
+
+<xs:element name="listarTareaPorIDResponse" type="tns:listarTareaPorIDResponse"/>
+
+<xs:element name="listarTareaResponse" type="tns:listarTareaResponse"/>
+
+<xs:element name="updateTarea" type="tns:updateTarea"/>
+
+<xs:element name="updateTareaResponse" type="tns:updateTareaResponse"/>
+
+<xs:complexType name="deleteTarea">
+<xs:sequence>
+<xs:element name="idTarea" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteTareaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarTareaPorID">
+<xs:sequence>
+<xs:element name="idTarea" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarTareaPorIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tarea" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tarea">
+<xs:sequence>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaFinalizacion" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechaInicio" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="idProyecto" type="xs:int"/>
+<xs:element name="idTarea" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertTarea">
+<xs:sequence>
+<xs:element name="idProyecto" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaInicio" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaFinalizacion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertTareaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarTarea">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarTareaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tarea" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateTarea">
+<xs:sequence>
+<xs:element name="idTarea" type="xs:int"/>
+<xs:element name="idProyecto" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaInicio" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaFinalizacion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateTareaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
