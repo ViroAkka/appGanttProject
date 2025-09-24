@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     </head>
     <body>
-        <%@include file="index.jsp" %>
+        <%@include file="menu.jsp" %>
         
         <h2 class="table-title">Mantenimiento de Proyectos</h2>
         <form method="post" action="srvBusquedaProyecto" class="contenedor tabla-mantenimiento">
