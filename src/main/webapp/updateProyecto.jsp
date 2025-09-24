@@ -15,9 +15,9 @@
         <%
             Proyecto proyecto;
             Integer idProyecto = Integer.parseInt(request.getParameter("idProyecto"));
-            SrvProyecto_Service proyectoServicer = new SrvProyecto_Service();
+            SrvProyecto_Service proyectoService = new SrvProyecto_Service();
             
-            proyecto = proyectoServicer.getSrvProyectoPort().listarProyectoPorID(idProyecto);
+            proyecto = proyectoService.getSrvProyectoPort().listarProyectoPorID(idProyecto);
 
         %>
         
@@ -92,22 +92,24 @@
         
         <%
             Integer respuesta = (Integer) session.getAttribute("respuestaProyecto");
-            if (respuesta != null && respuesta == 1) {
-        %>
-            <script>
-                swal("Proyecto agregado", "El proyecto fue creado con éxito" , "success");
-            </script>
-        <%
-                // eliminamos el flag para que no vuelva a salir al refrescar
+            if (respuesta != null) {
+                if(respuesta == 1) 
+                {
+                    %>
+                    <script>
+                        swal("Proyecto agregado", "El proyecto fue creado con éxito" , "success");
+                    </script>
+                    <%
+                }
+                else 
+                {
+                    %>
+                    <script>
+                        swal("Proyecto no fue agregado", "Revisa los datos por favor." , "error");
+                    </script>
+                    <%
+                }
                 session.removeAttribute("respuestaProyecto");
-            }
-            else 
-            {
-        %>
-                <script>
-                    swal("Proyecto no fue agregado", "Revisa los datos por favor." , "error");
-                </script>
-        <%
             }
         %>
     </body>

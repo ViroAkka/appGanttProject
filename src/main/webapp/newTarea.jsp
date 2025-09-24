@@ -33,7 +33,7 @@
                             <!--<input type="text" required class="form-control mb-2" id="idProyecto" name="idProyecto" />-->
                             
                             <select type="text" required class="form-control mb-2 lista-opciones" id="idProyecto" name="idProyecto">
-                                <option selected>-- Seleccionar opción --</option>
+                                <option selected disabled>-- Seleccionar opción --</option>
                                 <%
                                     SrvProyecto_Service proyectoService = new SrvProyecto_Service();
 
