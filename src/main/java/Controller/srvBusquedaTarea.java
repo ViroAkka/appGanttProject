@@ -6,6 +6,7 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,16 +31,32 @@ public class srvBusquedaTarea extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet srvBusquedaTarea</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet srvBusquedaTarea at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            RequestDispatcher rd = null;
+
+            String idTareaParam = request.getParameter("idTarea");
+            int idTarea = 0;
+
+            if (idTareaParam != null && !idTareaParam.trim().isEmpty()) {
+                try {
+                    idTarea = Integer.parseInt(idTareaParam);
+                } catch (NumberFormatException e) {
+                    idTareaParam = null;
+                }
+            }
+
+            request.setAttribute("idTarea", idTarea);
+            rd = request.getRequestDispatcher("mantenimientoTarea.jsp");
+            rd.forward(request, response);
+            
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet srvBusquedaTarea</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet srvBusquedaTarea at " + request.getContextPath() + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
         }
     }
 

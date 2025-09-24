@@ -48,7 +48,7 @@
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="newTarea.jsp">Crear</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="mantenimientoTarea.jsp">Búsqueda</a></li>
+                      <li><a class="dropdown-item" href="mantenimientoTarea.jsp">Mantenimiento de Tareas</a></li>
                     </ul>
                   </li>
                   
@@ -60,7 +60,7 @@
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="#">Crear</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Búsqueda</a></li>
+                      <li><a class="dropdown-item" href="#">Mantenimiento de Actividades</a></li>
                     </ul>
                   </li>
                   
@@ -80,7 +80,7 @@
                               <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Crear</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Búsqueda</a></li>
+                                <li><a class="dropdown-item" href="#">Mantenimiento de Empresas</a></li>
                               </ul>
                             </li>
 
@@ -92,7 +92,7 @@
                               <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Crear</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Búsqueda</a></li>
+                                <li><a class="dropdown-item" href="#">Mantenimiento de Usuarios</a></li>
                               </ul>
                             </li>
                             <%
