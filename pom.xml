@@ -46,6 +46,11 @@
 			<version>${mockito-core.version}</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.20.6</version>
+        </dependency>
     </dependencies>
 
     <build>

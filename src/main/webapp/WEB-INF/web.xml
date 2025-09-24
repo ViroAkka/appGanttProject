@@ -20,6 +20,22 @@
         <servlet-name>srvDeleteProyecto</servlet-name>
         <servlet-class>Controller.srvDeleteProyecto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>srvInsertTarea</servlet-name>
+        <servlet-class>Controller.srvInsertTarea</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvUpdateTarea</servlet-name>
+        <servlet-class>Controller.srvUpdateTarea</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvDeleteTarea</servlet-name>
+        <servlet-class>Controller.srvDeleteTarea</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvBusquedaTarea</servlet-name>
+        <servlet-class>Controller.srvBusquedaTarea</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>srvUsuario</servlet-name>
         <url-pattern>/srvUsuario</url-pattern>
@@ -39,6 +55,22 @@
     <servlet-mapping>
         <servlet-name>srvDeleteProyecto</servlet-name>
         <url-pattern>/srvDeleteProyecto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvInsertTarea</servlet-name>
+        <url-pattern>/srvInsertTarea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvUpdateTarea</servlet-name>
+        <url-pattern>/srvUpdateTarea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvDeleteTarea</servlet-name>
+        <url-pattern>/srvDeleteTarea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvBusquedaTarea</servlet-name>
+        <url-pattern>/srvBusquedaTarea</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

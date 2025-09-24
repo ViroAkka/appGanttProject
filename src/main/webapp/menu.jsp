@@ -46,9 +46,9 @@
                       Tarea
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Crear</a></li>
+                      <li><a class="dropdown-item" href="newTarea.jsp">Crear</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Búsqueda</a></li>
+                      <li><a class="dropdown-item" href="mantenimientoTarea.jsp">Búsqueda</a></li>
                     </ul>
                   </li>
                   

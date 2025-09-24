@@ -31,7 +31,7 @@
                     <div class="col" align="center">
                         <div class="form-group">
                             <!--<label class="p-2">ID del Proyecto</label>-->
-                            <input type="text" hidden value="<%= proyecto.getIdProyecto()%>" required class="form-control mb-2" id="idProyecto" name="idProyecto" />
+                            <input type="text" hidden value="<%= proyecto.getIdProyecto()%>" required class="form-control mb-2 input-readonly" id="idProyecto" name="idProyecto" />
                         </div>
                     </div>
                     
