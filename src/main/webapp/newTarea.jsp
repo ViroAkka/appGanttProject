@@ -86,19 +86,21 @@
         <%
             Integer respuesta = (Integer) session.getAttribute("respuestaTarea");
             if (respuesta != null) {
-                if (respuesta == 1) {
-                %>
-                <script>
-                    swal("Tarea agregada", "La tarea fue creada con éxito", "success");
-                </script>
-                <%
-                } else 
+                if (respuesta == 1) 
                 {
-                %>
+                    %>
+                    <script>
+                        swal("Tarea agregada", "La tarea fue creada con éxito", "success");
+                    </script>
+                    <%
+                } 
+                else 
+                {
+                    %>
                     <script>
                         swal("Error", "La tarea no fue agregada. Revisa los datos.", "error");
                     </script>
-                <%
+                    <%
                 }
                 session.removeAttribute("respuestaTarea");
             }

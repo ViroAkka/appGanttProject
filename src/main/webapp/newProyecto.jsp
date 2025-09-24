@@ -56,22 +56,26 @@
         
         <%
             Integer respuesta = (Integer) session.getAttribute("respuestaProyecto");
-            if (respuesta != null && respuesta == 1) {
-        %>
-            <script>
-                swal("Proyecto agregado", "El proyecto fue creado con éxito" , "success");
-            </script>
-        <%
-                // eliminamos el flag para que no vuelva a salir al refrescar
-                session.removeAttribute("respuestaProyecto");
-            }
-            else 
+            if (respuesta != null) 
             {
-        %>
-                <script>
-                    swal("Proyecto no fue agregado", "Revisa los datos por favor." , "error");
-                </script>
-        <%
+                if (respuesta == 1)
+                {
+                    %>
+                    <script>
+                        swal("Proyecto agregado", "El proyecto fue creado con éxito" , "success");
+                    </script>
+                    <%
+                }
+                else 
+                {
+                    %>
+                    <script>
+                        swal("Proyecto no fue agregado", "Revisa los datos por favor." , "error");
+                    </script>
+                    <%
+                }
+        
+                session.removeAttribute("respuestaProyecto");
             }
         %>
     </body>
