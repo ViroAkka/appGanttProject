@@ -5,8 +5,8 @@
         <servlet-class>Controller.srvUsuario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>srvProyecto</servlet-name>
-        <servlet-class>Controller.srvProyecto</servlet-class>
+        <servlet-name>srvInsertProyecto</servlet-name>
+        <servlet-class>Controller.srvInsertProyecto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>srvBusquedaProyecto</servlet-name>
@@ -25,8 +25,8 @@
         <url-pattern>/srvUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>srvProyecto</servlet-name>
-        <url-pattern>/srvProyecto</url-pattern>
+        <servlet-name>srvInsertProyecto</servlet-name>
+        <url-pattern>/srvInsertProyecto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>srvBusquedaProyecto</servlet-name>

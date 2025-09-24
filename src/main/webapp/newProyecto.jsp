@@ -10,7 +10,7 @@
     <body>
         <%@include file="menu.jsp" %>
         
-        <form name="frmProyecto" action="srvProyecto" method="POST" class="contenedor-formulario">
+        <form name="frmProyecto" action="srvInsertProyecto" method="POST" class="contenedor-formulario">
             <div>
                 <div class="formulario card border-primary">
                     <div class="card-header formulario-header">

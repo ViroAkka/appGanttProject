@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class srvProyecto extends HttpServlet {
+public class srvInsertProyecto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -61,7 +61,7 @@ public class srvProyecto extends HttpServlet {
 //            out.println("<!DOCTYPE html>");
 //            out.println("<html>");
 //            out.println("<head>");
-//            out.println("<title>Servlet srvProyecto</title>");            
+//            out.println("<title>Servlet srvInsertProyecto</title>");            
 //            out.println("</head>");
 //            out.println("<body>");
 //            out.println("<h1>Nombre: " + nombre + ", descripción: " + descripcion + ", fecha Inicio: " + fechaInicio + ", fecha fin: " + fechaFinalizacion +"</h1>");
