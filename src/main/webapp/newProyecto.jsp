@@ -78,5 +78,7 @@
                 session.removeAttribute("respuestaProyecto");
             }
         %>
+        
+        <%@include file="footer.jsp" %>
     </body>
 </html>

@@ -105,5 +105,6 @@
                 session.removeAttribute("respuestaEmpresa");
             }
         %>
+        <%@include file="footer.jsp" %>
     </body>
 </html>

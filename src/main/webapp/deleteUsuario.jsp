@@ -128,5 +128,6 @@
                 session.removeAttribute("respuestaUsuario");
             }
         %>
+        <%@include file="footer.jsp" %>
     </body>
 </html>

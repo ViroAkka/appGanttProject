@@ -110,5 +110,7 @@
                 session.removeAttribute("respuestaActividad");
             }
         %>
+        
+        <%@include file="footer.jsp" %>
     </body>
 </html>

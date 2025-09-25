@@ -148,5 +148,6 @@
                 } session.removeAttribute("respuestaTarea");
             }
         %>
+        <%@include file="footer.jsp" %>
     </body>
 </html>
