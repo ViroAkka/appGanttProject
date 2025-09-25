@@ -1,14 +1,16 @@
+<%@page import="Modelo.Tarea"%>
+<%@page import="Modelo.SrvTarea_Service"%>
 <%@page import="Modelo.Proyecto"%>
 <%@page import="java.util.List"%>
 <%@page import="Modelo.SrvProyecto_Service"%>
-<%@page import="Modelo.SrvTarea_Service"%>
-<%@page import="Modelo.Tarea"%>
+<%@page import="Modelo.SrvActividad_Service"%>
+<%@page import="Modelo.Actividad"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Actualizar Tarea - Gantt Project</title>
+        <title>Actualizar Actividad - Gantt Project</title>
         
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     </head>
@@ -16,54 +18,60 @@
         <%@include file="menu.jsp" %>
         
         <%
-            Tarea tarea;
-            Integer idTarea = Integer.parseInt(request.getParameter("idTarea"));
-            SrvTarea_Service tareaService = new SrvTarea_Service();
+            Actividad actividad;
+            Integer idActividad = Integer.parseInt(request.getParameter("idActividad"));
+            SrvActividad_Service actividadService = new SrvActividad_Service();
             
-            tarea = tareaService.getSrvTareaPort().listarTareaPorID(idTarea);
-
+            actividad = actividadService.getSrvActividadPort().listarActividadPorID(idActividad);
+            
+            // debug rápido: verifica que 'actividad' exista y su id
+            //if (actividad == null) {
+            //    out.println("<div style='color:red'>DEBUG: actividad es NULL</div>");
+            //} else {
+            //    out.println("<div style='color:green'>DEBUG: actividad.getIdTarea() = " + actividad.getIdTarea() + "</div>");
+            //}
         %>
         
-        <form name="frmTarea" action="srvUpdateTarea" method="POST" class="contenedor-formulario">
+        <form name="frmActividad" action="srvDeleteActividad" method="POST" class="contenedor-formulario">
             <div>
                 <div class="formulario card border-primary">
                     <div class="card-header formulario-header">
-                        <label class="p-2">Actualizar Tarea</label>
+                        <label class="p-2">Eliminar Actividad</label>
                     </div>
                     
                     <div class="col" align="center">
                         <div class="form-group">
-                            <!--<label class="p-2">ID del Tarea</label>-->
-                            <input type="text" hidden value="<%= tarea.getIdTarea()%>" required class="form-control mb-2 input-readonly" id="idTarea" name="idTarea" />
+                            <!--<label class="p-2">ID del Actividad</label>-->
+                            <input type="text" hidden value="<%= actividad.getIdActividad()%>" required class="form-control mb-2 input-readonly" id="idActividad" name="idActividad" />
                         </div>
                     </div>
                     
                     <div class="col" align="center">
                         <div class="form-group">
-                            <label class="p-2">Proyecto</label>
-                            <!--<input type="text" required class="form-control mb-2" id="idProyecto" name="idProyecto" />-->
-                            
-                            <select type="text" required class="form-control mb-2 lista-opciones" id="idProyecto" name="idProyecto">
-                                <option disabled>-- Seleccionar opción --</option>
+                            <label class="p-2">Tarea - Proyecto</label>
+                            <select type="text" required class="form-control mb-2 lista-opciones" id="idTarea" name="idTarea">
+                                <option disabled >-- Seleccionar opción --</option>
                                 <%
+                                    SrvTarea_Service tareaService = new SrvTarea_Service();
                                     SrvProyecto_Service proyectoService = new SrvProyecto_Service();
                                     
-                                    List<Proyecto> proyectos = proyectoService.getSrvProyectoPort().listarProyecto();
-
-                                    for (int i = 0; i < proyectos.size(); i++) 
+                                    List<Tarea> tareas = tareaService.getSrvTareaPort().listarTarea();
+                                    
+                                    for (int i = 0; i < tareas.size(); i++) 
                                     {
-                                        Proyecto p = proyectos.get(i);
+                                        Tarea t = tareas.get(i);
+                                        Proyecto p = proyectoService.getSrvProyectoPort().listarProyectoPorID(t.getIdProyecto());
                                         
-                                        if(p.getIdProyecto() == tarea.getIdProyecto()) 
+                                        if(t.getIdTarea() == actividad.getIdTarea()) 
                                         {
                                             %>
-                                            <option selected value="<%= p.getIdProyecto() %>"><%= p.getNombre() %></option>
+                                            <option selected value="<%= t.getIdTarea() %>"><%= t.getNombre() + " - " + p.getNombre() %></option>
                                             <%
                                         } 
                                         else 
                                         {
                                             %>
-                                            <option value="<%= p.getIdProyecto() %>"><%= p.getNombre() %></option>
+                                            <option value="<%= t.getIdTarea()%>"><%= t.getNombre() + " - " + p.getNombre() %></option>
                                             <%
                                         }
                                     }
@@ -74,30 +82,30 @@
                         
                     <div class="col" align="center">
                         <div class="form-group">
-                            <label class="p-2">Nombre del Tarea</label>
-                            <input type="text" value="<%= tarea.getNombre() %>" required class="form-control mb-2" id="nombre" name="nombre" />
+                            <label class="p-2">Nombre de la Actividad</label>
+                            <input type="text" value="<%= actividad.getNombre() %>" required class="form-control mb-2" id="nombre" name="nombre" />
                         </div>
                     </div>
 
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Descripcion</label>
-                            <input type="text" value="<%= tarea.getDescripcion()%>" required class="form-control mb-2" id="descripcion" name="descripcion" />
+                            <input type="text" value="<%= actividad.getDescripcion()%>" required class="form-control mb-2" id="descripcion" name="descripcion" />
                         </div>
                     </div>
 
                     <%
                         String fechaInicio = "";
-                        if (tarea.getFechaInicio() != null) {
-                            fechaInicio = tarea.getFechaInicio().toGregorianCalendar()
+                        if (actividad.getFechaInicio() != null) {
+                            fechaInicio = actividad.getFechaInicio().toGregorianCalendar()
                                                   .toZonedDateTime()
                                                   .toLocalDate()
                                                   .toString(); 
                         }
 
                         String fechaFin = "";
-                        if (tarea.getFechaFinalizacion() != null) {
-                            fechaFin = tarea.getFechaFinalizacion().toGregorianCalendar()
+                        if (actividad.getFechaFinalizacion() != null) {
+                            fechaFin = actividad.getFechaFinalizacion().toGregorianCalendar()
                                                .toZonedDateTime()
                                                .toLocalDate()
                                                .toString();
@@ -119,7 +127,7 @@
                     </div>
                     
                     <div class="contenedor-btn">
-                        <button type="submit" class="btn btn-primary btn-guardar">Actualizar</button>
+                        <button type="submit" class="btn btn-primary btn-guardar">Eliminar</button>
                     </div>
 
                 </div>
@@ -128,13 +136,13 @@
         </form>
         
            <%
-                Integer respuesta = (Integer) session.getAttribute("respuestaTarea");
+                Integer respuesta = (Integer) session.getAttribute("respuestaActividad");
                 if (respuesta != null) {
                     if(respuesta == 1) 
                     {
                         %>
                         <script>
-                            swal("Tarea agregado", "El proyecto fue creado con éxito" , "success");
+                            swal("Actividad agregado", "El proyecto fue creado con éxito" , "success");
                         </script>
                         <%
                     }
@@ -142,11 +150,11 @@
                     {
                         %>
                         <script>
-                            swal("Tarea no fue agregado", "Revisa los datos por favor." , "error");
+                            swal("Actividad no fue agregado", "Revisa los datos por favor." , "error");
                         </script>
                         <%
                     }
-                    session.removeAttribute("respuestaTarea");
+                    session.removeAttribute("respuestaActividad");
                 }
             %>
     </body>

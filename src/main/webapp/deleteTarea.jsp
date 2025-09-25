@@ -28,7 +28,7 @@
             <div>
                 <div class="formulario card border-primary">
                     <div class="card-header formulario-header">
-                        <label class="p-2">Actualizar Tarea</label>
+                        <label class="p-2">Eliminar Tarea</label>
                     </div>
                     
                     <div class="col" align="center">

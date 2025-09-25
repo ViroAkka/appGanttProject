@@ -63,7 +63,7 @@
                                         <td scope="row"><%= t.getFechaInicio().toString().substring(0, 10) %></td>
                                         <td scope="row"><%= t.getFechaFinalizacion().toString().substring(0, 10) %></td>
                                         <td scope="row"><a href="updateTarea.jsp?idTarea=<%= t.getIdTarea() %>" class="btn btn-primary">Actualizar</a></td>
-                                        <td scope="row"><a href="deleteTarea.jsp?idTarea=<%= t.getIdTarea() %>" class="btn btn-primary">Eliminar</a></td>
+                                        <td scope="row"><a href="deleteTarea.jsp?idTarea=<%= t.getIdTarea() %>" class="btn btn-danger">Eliminar</a></td>
                                     </tr>
                                     <%
                             }
@@ -83,7 +83,7 @@
                                         <td scope="row"><%= t.getFechaInicio().toString().substring(0, 10) %></td>
                                         <td scope="row"><%= t.getFechaFinalizacion().toString().substring(0, 10) %></td>
                                         <td scope="row"><a href="updateTarea.jsp?idTarea=<%= t.getIdTarea() %>" class="btn btn-primary">Actualizar</a></td>
-                                        <td scope="row"><a href="deleteTarea.jsp?idTarea=<%= t.getIdTarea() %>" class="btn btn-primary">Eliminar</a></td>
+                                        <td scope="row"><a href="deleteTarea.jsp?idTarea=<%= t.getIdTarea() %>" class="btn btn-danger">Eliminar</a></td>
                                     </tr>
                                     <%
                                 }

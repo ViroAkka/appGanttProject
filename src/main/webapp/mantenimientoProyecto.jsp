@@ -69,7 +69,7 @@
                                         <td scope="row"><%= p.getFechaInicio().toString().substring(0, 10) %></td>
                                         <td scope="row"><%= p.getFechaFinalizacion().toString().substring(0, 10) %></td>
                                         <td scope="row"><a href="updateProyecto.jsp?idProyecto=<%= p.getIdProyecto() %>" class="btn btn-primary">Actualizar</a></td>
-                                        <td scope="row"><a href="deleteProyecto.jsp?idProyecto=<%= p.getIdProyecto() %>" class="btn btn-primary">Eliminar</a></td>
+                                        <td scope="row"><a href="deleteProyecto.jsp?idProyecto=<%= p.getIdProyecto() %>" class="btn btn-danger">Eliminar</a></td>
                                     </tr>
                                     <%
                             }
@@ -89,7 +89,7 @@
                                         <td scope="row"><%= p.getFechaInicio().toString().substring(0, 10) %></td>
                                         <td scope="row"><%= p.getFechaFinalizacion().toString().substring(0, 10) %></td>
                                         <td scope="row"><a href="updateProyecto.jsp?idProyecto=<%= p.getIdProyecto() %>" class="btn btn-primary">Actualizar</a></td>
-                                        <td scope="row"><a href="deleteProyecto.jsp?idProyecto=<%= p.getIdProyecto() %>" class="btn btn-primary">Eliminar</a></td>
+                                        <td scope="row"><a href="deleteProyecto.jsp?idProyecto=<%= p.getIdProyecto() %>" class="btn btn-danger">Eliminar</a></td>
                                     </tr>
                                     <%
                                 }
