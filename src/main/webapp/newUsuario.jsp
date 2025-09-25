@@ -1,50 +1,55 @@
-<%@page import="Modelo.Proyecto"%>
+<%@page import="Modelo.Empresa"%>
+<%@page import="Modelo.SrvEmpresa_Service"%>
 <%@page import="java.util.List"%>
-<%@page import="Modelo.SrvProyecto_Service"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gantt Project - Nueva Tarea</title>
+        <title>Gantt Project - Nuevo Usuario</title>
         
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     </head>
     <body>
         <%@include file="menu.jsp" %>
         
-        <form name="frmTarea" action="srvInsertTarea" method="POST" class="contenedor-formulario">
+        <form name="frmUsuario" action="srvInsertUsuario" method="POST" class="contenedor-formulario">
             <div>
                 <div class="formulario card border-primary">
                     <div class="card-header formulario-header">
-                        <label class="p-2">Nueva Tarea</label>
+                        <label class="p-2">Nuevo Usuario</label>
                     </div>
                     
                     <div class="col" align="center">
                         <div class="form-group">
-                            <label class="p-2">Nombre de la Tarea</label>
+                            <label class="p-2">Nombre del Usuario</label>
                             <input type="text" required class="form-control mb-2" id="nombre" name="nombre" />
                         </div>
                     </div>
                     
                     <div class="col" align="center">
                         <div class="form-group">
-                            <label class="p-2">Proyecto</label>
-                            <!--<input type="text" required class="form-control mb-2" id="idProyecto" name="idProyecto" />-->
-                            
-                            <select type="text" required class="form-control mb-2 lista-opciones" id="idProyecto" name="idProyecto">
+                            <label class="p-2">Apellido del Usuario</label>
+                            <input type="text" required class="form-control mb-2" id="apellido" name="apellido" />
+                        </div>
+                    </div>
+                    
+                    <div class="col" align="center">
+                        <div class="form-group">
+                            <label class="p-2">Empresa</label>
+                            <select type="text" required class="form-control mb-2 lista-opciones" id="idEmpresa" name="idEmpresa">
                                 <option selected disabled>-- Seleccionar opción --</option>
                                 <%
-                                    SrvProyecto_Service proyectoService = new SrvProyecto_Service();
+                                    SrvEmpresa_Service empresaService = new SrvEmpresa_Service();
 
-                                    List<Proyecto> proyectos = proyectoService.getSrvProyectoPort().listarProyecto();
+                                    List<Empresa> empresas = empresaService.getSrvEmpresaPort().listarEmpresa();
 
-                                    for (int i = 0; i < proyectos.size(); i++) 
+                                    for (int i = 0; i < empresas.size(); i++) 
                                     {
-                                        Proyecto p = proyectos.get(i);
+                                        Empresa e = empresas.get(i);
 
                                         %>
-                                        <option value="<%= p.getIdProyecto() %>"><%= p.getNombre() %></option>
+                                        <option value="<%= e.getIdEmpresa()%>"><%= e.getNombre() %></option>
                                         
                                         <%
                                     }
@@ -55,22 +60,15 @@
 
                     <div class="col" align="center">
                         <div class="form-group">
-                            <label class="p-2">Descripcion</label>
-                            <input type="text" required class="form-control mb-2" id="descripcion" name="descripcion" />
+                            <label class="p-2">Email</label>
+                            <input type="email" required class="form-control mb-2" id="email" name="email" />
                         </div>
                     </div>
 
                     <div class="col" align="center">
                         <div class="form-group">
-                            <label class="p-2">Fecha de inicio</label>
-                            <input type="date" required class="form-control mb-2" id="fechaInicio" name="fechaInicio" />
-                        </div>
-                    </div>
-                    
-                    <div class="col" align="center">
-                        <div class="form-group">
-                            <label class="p-2">Fecha de finalizacion</label>
-                            <input type="date" required class="form-control mb-2" id="fechaFinalizacion" name="fechaFinalizacion" />
+                            <label class="p-2">Contraseña</label>
+                            <input type="password" required class="form-control mb-2" id="contraseña_hash" name="contraseña_hash" />
                         </div>
                     </div>
                     
@@ -80,17 +78,16 @@
 
                 </div>
             </div>
-            
         </form>
         
         <%
-            Integer respuesta = (Integer) session.getAttribute("respuestaTarea");
+            Integer respuesta = (Integer) session.getAttribute("respuestaUsuario");
             if (respuesta != null) {
                 if (respuesta == 1) 
                 {
                     %>
                     <script>
-                        swal("Tarea agregada", "La tarea fue creada con éxito", "success");
+                        swal("Usuario agregado", "El Usuario fue creado con éxito", "success");
                     </script>
                     <%
                 } 
@@ -98,11 +95,11 @@
                 {
                     %>
                     <script>
-                        swal("Error", "La tarea no fue agregada. Revisa los datos.", "error");
+                        swal("Error", "El Usuario no fue agregado. Revisa los datos.", "error");
                     </script>
                     <%
                 }
-                session.removeAttribute("respuestaTarea");
+                session.removeAttribute("respuestaUsuario");
             }
         %>
     </body>

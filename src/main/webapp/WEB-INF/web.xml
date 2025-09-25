@@ -68,6 +68,22 @@
         <servlet-name>srvDeleteEmpresa</servlet-name>
         <servlet-class>Controller.srvDeleteEmpresa</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>srvInsertUsuario</servlet-name>
+        <servlet-class>Controller.srvInsertUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvBusquedaUsuario</servlet-name>
+        <servlet-class>Controller.srvBusquedaUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvUpdateUsuario</servlet-name>
+        <servlet-class>Controller.srvUpdateUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvDeleteUsuario</servlet-name>
+        <servlet-class>Controller.srvDeleteUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>srvUsuario</servlet-name>
         <url-pattern>/srvUsuario</url-pattern>
@@ -135,6 +151,22 @@
     <servlet-mapping>
         <servlet-name>srvDeleteEmpresa</servlet-name>
         <url-pattern>/srvDeleteEmpresa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvInsertUsuario</servlet-name>
+        <url-pattern>/srvInsertUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvBusquedaUsuario</servlet-name>
+        <url-pattern>/srvBusquedaUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvUpdateUsuario</servlet-name>
+        <url-pattern>/srvUpdateUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvDeleteUsuario</servlet-name>
+        <url-pattern>/srvDeleteUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

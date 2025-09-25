@@ -90,9 +90,9 @@
                                 Usuario
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Crear</a></li>
+                                <li><a class="dropdown-item" href="newUsuario.jsp">Crear</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Mantenimiento de Usuarios</a></li>
+                                <li><a class="dropdown-item" href="mantenimientoUsuario.jsp">Mantenimiento de Usuarios</a></li>
                               </ul>
                             </li>
                             <%
