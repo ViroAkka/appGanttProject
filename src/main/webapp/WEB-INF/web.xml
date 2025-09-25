@@ -36,6 +36,22 @@
         <servlet-name>srvBusquedaTarea</servlet-name>
         <servlet-class>Controller.srvBusquedaTarea</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>srvInsertActividad</servlet-name>
+        <servlet-class>Controller.srvInsertActividad</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvBusquedaActividad</servlet-name>
+        <servlet-class>Controller.srvBusquedaActividad</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvDeleteActividad</servlet-name>
+        <servlet-class>Controller.srvDeleteActividad</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvUpdateActividad</servlet-name>
+        <servlet-class>Controller.srvUpdateActividad</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>srvUsuario</servlet-name>
         <url-pattern>/srvUsuario</url-pattern>
@@ -71,6 +87,22 @@
     <servlet-mapping>
         <servlet-name>srvBusquedaTarea</servlet-name>
         <url-pattern>/srvBusquedaTarea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvInsertActividad</servlet-name>
+        <url-pattern>/srvInsertActividad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvBusquedaActividad</servlet-name>
+        <url-pattern>/srvBusquedaActividad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvDeleteActividad</servlet-name>
+        <url-pattern>/srvDeleteActividad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvUpdateActividad</servlet-name>
+        <url-pattern>/srvUpdateActividad</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

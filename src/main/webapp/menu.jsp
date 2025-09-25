@@ -58,9 +58,9 @@
                       Actividad
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Crear</a></li>
+                      <li><a class="dropdown-item" href="newActividad.jsp">Crear</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Mantenimiento de Actividades</a></li>
+                      <li><a class="dropdown-item" href="mantenimientoActividad.jsp">Mantenimiento de Actividades</a></li>
                     </ul>
                   </li>
                   
