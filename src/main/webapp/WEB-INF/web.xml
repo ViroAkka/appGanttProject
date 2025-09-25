@@ -52,6 +52,22 @@
         <servlet-name>srvUpdateActividad</servlet-name>
         <servlet-class>Controller.srvUpdateActividad</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>srvInsertEmpresa</servlet-name>
+        <servlet-class>Controller.srvInsertEmpresa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvBusquedaEmpresa</servlet-name>
+        <servlet-class>Controller.srvBusquedaEmpresa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvUpdateEmpresa</servlet-name>
+        <servlet-class>Controller.srvUpdateEmpresa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvDeleteEmpresa</servlet-name>
+        <servlet-class>Controller.srvDeleteEmpresa</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>srvUsuario</servlet-name>
         <url-pattern>/srvUsuario</url-pattern>
@@ -103,6 +119,22 @@
     <servlet-mapping>
         <servlet-name>srvUpdateActividad</servlet-name>
         <url-pattern>/srvUpdateActividad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvInsertEmpresa</servlet-name>
+        <url-pattern>/srvInsertEmpresa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvBusquedaEmpresa</servlet-name>
+        <url-pattern>/srvBusquedaEmpresa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvUpdateEmpresa</servlet-name>
+        <url-pattern>/srvUpdateEmpresa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvDeleteEmpresa</servlet-name>
+        <url-pattern>/srvDeleteEmpresa</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : mantenimientoProveedor
-    Created on : 18/09/2025, 10:51:49 AM
-    Author     : Usuario
---%>
-
 <%@page import="Modelo.SrvProyecto_Service"%>
 <%@page import="Modelo.Proyecto"%>
 <%@page import="java.util.List"%>
@@ -94,7 +88,6 @@
                                     <%
                                 }
                             }
-                            
                         %>
                     </tbody>
                 </table>

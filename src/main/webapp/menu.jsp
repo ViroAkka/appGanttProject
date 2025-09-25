@@ -78,9 +78,9 @@
                                 Empresa
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Crear</a></li>
+                                <li><a class="dropdown-item" href="newEmpresa.jsp">Crear</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Mantenimiento de Empresas</a></li>
+                                <li><a class="dropdown-item" href="mantenimientoEmpresa.jsp">Mantenimiento de Empresas</a></li>
                               </ul>
                             </li>
 

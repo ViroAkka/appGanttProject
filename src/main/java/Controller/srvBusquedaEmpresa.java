@@ -1,7 +1,5 @@
 package Controller;
 
-import Modelo.SrvActividad_Service;
-import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -9,9 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-public class srvInsertActividad extends HttpServlet {
+public class srvBusquedaEmpresa extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -24,50 +21,34 @@ public class srvInsertActividad extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            String method = request.getMethod();
-            
-            if ("POST".equalsIgnoreCase(method)) {
-                int idTarea = Integer.parseInt(request.getParameter("idProyecto"));
-                String nombre = request.getParameter("nombre");
-                String descripcion = request.getParameter("descripcion");
-                String fechaInicio = request.getParameter("fechaInicio");
-                String fechaFinalizacion = request.getParameter("fechaFinalizacion");
+             
+            RequestDispatcher rd = null;
 
-                HttpSession session = request.getSession(false); 
-                if (session == null || session.getAttribute("usuario") == null) {
-                    response.sendRedirect("login.jsp");
-                    return;
+            String idEmpresaParam = request.getParameter("idEmpresa");
+            int idEmpresa = 0;
+
+            if (idEmpresaParam != null && !idEmpresaParam.trim().isEmpty()) {
+                try {
+                    idEmpresa = Integer.parseInt(idEmpresaParam);
+                } catch (NumberFormatException e) {
+                    idEmpresaParam = null;
                 }
-
-                Usuario usuario = (Usuario) session.getAttribute("usuario");
-                
-                SrvActividad_Service actividadService = new SrvActividad_Service();
-                int respuesta = actividadService.getSrvActividadPort()
-                                   .insertActividad(idTarea, nombre, descripcion, fechaInicio, fechaFinalizacion);
-
-                // Guardamos un "flag" en la sesión para mostrar el mensaje en JSP
-                session.setAttribute("respuestaActividad", respuesta);
-
-                // Redirigimos con GET (evita reenvío al recargar)
-                response.sendRedirect("newActividad.jsp");
-                } 
-            else 
-            {
-                // Si es GET simplemente mostramos la página
-                RequestDispatcher rd = request.getRequestDispatcher("newActividad.jsp");
-                rd.forward(request, response);
             }
+
+            request.setAttribute("idEmpresa", idEmpresa);
+            rd = request.getRequestDispatcher("mantenimientoEmpresa.jsp");
+            rd.forward(request, response);
             
 //            out.println("<!DOCTYPE html>");
 //            out.println("<html>");
 //            out.println("<head>");
-//            out.println("<title>Servlet srvInsertActividad</title>");            
+//            out.println("<title>Servlet srvBusquedaEmpresa</title>");            
 //            out.println("</head>");
 //            out.println("<body>");
-//            out.println("<h1>Servlet srvInsertActividad at " + request.getContextPath() + "</h1>");
+//            out.println("<h1>Servlet srvBusquedaEmpresa at " + request.getContextPath() + "</h1>");
 //            out.println("</body>");
 //            out.println("</html>");
         }
