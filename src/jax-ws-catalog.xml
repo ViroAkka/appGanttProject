@@ -11,4 +11,6 @@
     <system systemId="http://localhost:8080/wsGanttProject/srvActividad?xsd=1" uri="wsdl/localhost_8080/wsGanttProject/srvActividad.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/wsGanttProject/srvUsuario?wsdl" uri="wsdl/localhost_8080/wsGanttProject/srvUsuario.wsdl"/>
     <system systemId="http://localhost:8080/wsGanttProject/srvUsuario?xsd=1" uri="wsdl/localhost_8080/wsGanttProject/srvUsuario.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvReporte?wsdl" uri="wsdl/localhost_8080/wsGanttProject/srvReporte.wsdl"/>
+    <system systemId="http://localhost:8080/wsGanttProject/srvReporte?xsd=1" uri="wsdl/localhost_8080/wsGanttProject/srvReporte.xsd_1.xsd"/>
 </catalog>

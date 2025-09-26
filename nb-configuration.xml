@@ -21,5 +21,6 @@ Any value defined here will override the pom.xml file value but is only applicab
         <org-netbeans-modules-maven-jaxws._5f_C_5f_srvTarea>http://localhost:8080/wsGanttProject/srvTarea?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_srvTarea>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_srvActividad>http://localhost:8080/wsGanttProject/srvActividad?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_srvActividad>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_srvUsuario>http://localhost:8080/wsGanttProject/srvUsuario?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_srvUsuario>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_srvReporte>http://localhost:8080/wsGanttProject/srvReporte?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_srvReporte>
     </properties>
 </project-shared-configuration>
