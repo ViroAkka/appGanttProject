@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3.payara-p6 (FISH-5811-df8dba8; 2021-12-02T15:42:59+0000) JAXWS-RI/2.3.2.payara-p4 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://Servicio/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Servicio/">
 
-<xs:element name="listarActividadPorIdTarea" type="tns:listarActividadPorIdTarea"/>
+<xs:element name="listarActividadesPorTarea" type="tns:listarActividadesPorTarea"/>
 
-<xs:element name="listarActividadPorIdTareaResponse" type="tns:listarActividadPorIdTareaResponse"/>
+<xs:element name="listarActividadesPorTareaResponse" type="tns:listarActividadesPorTareaResponse"/>
 
-<xs:element name="listarTareaPorIdProyecto" type="tns:listarTareaPorIdProyecto"/>
+<xs:element name="listarTareasPorProyecto" type="tns:listarTareasPorProyecto"/>
 
-<xs:element name="listarTareaPorIdProyectoResponse" type="tns:listarTareaPorIdProyectoResponse"/>
+<xs:element name="listarTareasPorProyectoResponse" type="tns:listarTareasPorProyectoResponse"/>
 
-<xs:complexType name="listarTareaPorIdProyecto">
+<xs:complexType name="listarTareasPorProyecto">
 <xs:sequence>
 <xs:element name="idProyecto" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarTareaPorIdProyectoResponse">
+<xs:complexType name="listarTareasPorProyectoResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:tarea" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
@@ -31,13 +31,13 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarActividadPorIdTarea">
+<xs:complexType name="listarActividadesPorTarea">
 <xs:sequence>
 <xs:element name="idTarea" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarActividadPorIdTareaResponse">
+<xs:complexType name="listarActividadesPorTareaResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:actividad" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
