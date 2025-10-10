@@ -84,6 +84,10 @@
         <servlet-name>srvDeleteUsuario</servlet-name>
         <servlet-class>Controller.srvDeleteUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>srvReporte</servlet-name>
+        <servlet-class>Controller.srvReporte</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>srvUsuario</servlet-name>
         <url-pattern>/srvUsuario</url-pattern>
@@ -167,6 +171,10 @@
     <servlet-mapping>
         <servlet-name>srvDeleteUsuario</servlet-name>
         <url-pattern>/srvDeleteUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvReporte</servlet-name>
+        <url-pattern>/srvReporte</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

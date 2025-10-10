@@ -108,10 +108,11 @@
                           Reportes
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="rptProyecto.jsp">Proyecto</a></li>
+                          <!--<li><a class="dropdown-item" href="rptProyecto.jsp">Proyecto</a></li>
                           <li><a class="dropdown-item" href="#">Tarea</a></li>
                           <li><a class="dropdown-item" href="#">Actividad</a></li>
-                          <!--<li><hr class="dropdown-divider"></li>-->
+                          <li><hr class="dropdown-divider"></li>-->
+                          <li><a class="dropdown-item" href="reporteArbol.jsp">Árbol de Proyecto</a></li>
                         </ul>
                     </li>
                   
