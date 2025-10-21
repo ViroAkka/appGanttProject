@@ -295,3 +295,86 @@
     font-weight: bold !important;
     padding: 2px 20px;
 }
+
+/* Video */
+.video {
+    max-height: 70rem;
+    min-height: 50rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+.video .overlay {
+    background: #e002e8;
+    background: radial-gradient(circle, rgba(224, 2, 232, 0.2) 4%, rgba(98, 6, 191, 0.62) 48%);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.video video {
+    z-index: 0;
+    position: relative;
+    display: block;
+    width: auto;
+    overflow: hidden;
+}
+
+@media (min-width:992px) {
+    .video video {
+        width: 100%
+    }
+}
+
+.video-content {
+    z-index: 1
+}
+
+.video-content h2 {
+    color: #fff;
+    font-size: 7rem;
+    margin-bottom: 0
+}
+
+.video-content p {
+    background-color: #33006F;
+    color: #fff;
+    display: inline-block;
+    font-size: 2.4rem;
+    font-weight: 700;
+    padding: 1rem 2rem
+}
+
+.olimpiada {
+    margin: 5rem 0;
+}
+
+@media (min-width: 768px) {
+    .olimpiada-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5rem;
+    }
+}
+
+.olimpiada-text .olimpiada-title {
+    font-weight: bold;
+}
+
+.olimpiada-text .date {
+    margin: 0;
+    color: green;
+    font-weight: 700;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}

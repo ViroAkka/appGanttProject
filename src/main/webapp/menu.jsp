@@ -17,7 +17,7 @@
                 response.sendRedirect("login.jsp");
             } 
         %>
-        <nav class="navbar-dark navbar-expand-lg bg-dark mb-4">
+        <nav class="navbar-dark navbar-expand-lg bg-dark">
             <div class="container-fluid">
               
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,7 +112,7 @@
                           <li><a class="dropdown-item" href="#">Tarea</a></li>
                           <li><a class="dropdown-item" href="#">Actividad</a></li>
                           <li><hr class="dropdown-divider"></li>-->
-                          <li><a class="dropdown-item" href="reporteArbol.jsp">Árbol de Proyecto</a></li>
+                          <li><a class="dropdown-item" href="reporteArbol.jsp">Reporte de Proyecto</a></li>
                         </ul>
                     </li>
                   

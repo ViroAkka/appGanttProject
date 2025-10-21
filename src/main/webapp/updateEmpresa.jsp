@@ -18,14 +18,6 @@
             SrvEmpresa_Service empresaService = new SrvEmpresa_Service();
             
             empresa = empresaService.getSrvEmpresaPort().listarEmpresaPorID(idEmpresa);
-            
-
-            // debug rápido: verifica que 'actividad' exista y su id
-            if (empresa == null) {
-                out.println("<div style='color:red'>DEBUG: empresa es NULL</div>");
-            } else {
-                out.println("<div style='color:green'>DEBUG: actividad.getIdTarea() = " + empresa.getIdEmpresa()+ "</div>");
-            }
         %>
         
         <form name="frmEmpresa" action="srvUpdateEmpresa" method="POST" class="contenedor-formulario">

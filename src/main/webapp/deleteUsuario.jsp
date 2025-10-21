@@ -99,7 +99,7 @@
                     </div>
                     
                     <div class="contenedor-btn">
-                        <button type="submit" class="btn btn-primary btn-guardar">Actualizar</button>
+                        <button type="submit" class="btn btn-primary btn-guardar">Eliminar</button>
                     </div>
 
                 </div>

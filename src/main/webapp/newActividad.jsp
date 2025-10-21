@@ -31,7 +31,7 @@
                     
                     <div class="col" align="center">
                         <div class="form-group">
-                            <label class="p-2">Actividad - Proyecto</label>
+                            <label class="p-2">Tarea - Proyecto</label>
                             <!--<input type="text" required class="form-control mb-2" id="idProyecto" name="idProyecto" />-->
                             
                             <select type="text" required class="form-control mb-2 lista-opciones" id="idProyecto" name="idProyecto">
