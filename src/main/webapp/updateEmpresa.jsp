@@ -2,10 +2,7 @@
 <%@page import="Modelo.Empresa"%>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Actualizar Empresa - Gantt Project</title>
-
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
     <jsp:include page="menu.jsp"/>

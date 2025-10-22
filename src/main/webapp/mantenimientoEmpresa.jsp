@@ -1,18 +1,14 @@
 <%@page import="Modelo.SrvEmpresa_Service"%>
 <%@page import="Modelo.Empresa"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Mantenimiento de Empresa - Gantt Project</title>
-        
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    </head>
-    <body>
-        <%@include file="menu.jsp" %>
-        
+
+<head>
+    <title>Mantenimiento de Empresa - Gantt Project</title>
+</head>
+<body>
+    <jsp:include page="menu.jsp"/>
+
+    <main>
         <h2 class="table-title">Mantenimiento de Empresas</h2>
         <form method="post" action="srvBusquedaEmpresa" class="contenedor tabla-mantenimiento">
             <div class="card border-primary tabla-principal">
@@ -36,7 +32,7 @@
                             <th><b>ID Empresa</b></th>
                             <th><b>Nombre</b></th>
                             <th><b>Representante legal</b></th>
-                            <th><b>DirecciÃ³n</b></th>
+                            <th><b>Dirección</b></th>
                             <th><b>Tipo de empresa</b></th>
                             <th></th>
                             <th></th>
@@ -45,13 +41,13 @@
 
                     <tbody class="datos">
                         <%
-                            
+
                             SrvEmpresa_Service empresaService = new SrvEmpresa_Service();
-                            
+
                             if (request.getAttribute("idEmpresa") != null) 
                             {
                                 int idEmpresa = Integer.parseInt(request.getAttribute("idEmpresa").toString());
-                                
+
                                 Empresa e = empresaService.getSrvEmpresaPort().listarEmpresaPorID(idEmpresa);
                                 %> 
                                     <tr>
@@ -68,7 +64,7 @@
                             else 
                             {
                                 List<Empresa> empresas = empresaService.getSrvEmpresaPort().listarEmpresa();
-                            
+
                                 for(int i = 0; i < empresas.size(); i++) 
                                 {
                                     Empresa e = empresas.get(i);
@@ -90,7 +86,8 @@
                 </table>
             </div>
         </form>
-        
-        <%@include file="footer.jsp" %>
-    </body>
-</html>
+    </main>
+
+    <jsp:include page="footer.jsp"/>
+</body>
+

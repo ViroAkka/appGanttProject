@@ -1,22 +1,17 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gantt Project - Nuevo Empresa</title>
-        
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    </head>
-    <body>
-        <%@include file="menu.jsp" %>
-        
+<head>
+    <title>Gantt Project - Nuevo Empresa</title>
+</head>
+<body>
+    <jsp:include page="menu.jsp"/>
+
+    <main class="mt-5">
         <form name="frmEmpresa" action="srvInsertEmpresa" method="POST" class="contenedor-formulario">
             <div>
                 <div class="formulario card border-primary">
                     <div class="card-header formulario-header">
                         <label class="p-2">Nueva Empresa</label>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Nombre de la Empresa</label>
@@ -33,32 +28,32 @@
 
                     <div class="col" align="center">
                         <div class="form-group">
-                            <label class="p-2">DirecciÃ³n</label>
+                            <label class="p-2">Dirección</label>
                             <input type="text" required class="form-control mb-2" id="direccion" name="direccion" />
                         </div>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Tipo de Empresa</label>
                             <select type="text" required class="form-control mb-2 lista-opciones" id="tipoEmpresa" name="tipoEmpresa">
-                                <option selected disabled>-- Seleccionar una opciÃ³n --</option>
-                                <option>TecnologÃ­a</option>
+                                <option selected disabled>-- Seleccionar una opción --</option>
+                                <option>Tecnología</option>
                                 <option>Medicina</option>
                                 <option>Manufactura</option>
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="contenedor-btn">
                         <button type="submit" class="btn btn-primary btn-guardar">Guardar</button>
                     </div>
 
                 </div>
             </div>
-            
+
         </form>
-        
+
         <%
             Integer respuesta = (Integer) session.getAttribute("respuestaEmpresa");
             if (respuesta != null) 
@@ -67,7 +62,7 @@
                 {
                     %>
                     <script>
-                        swal("Empresa agregada", "La empresa fue creada con Ã©xito" , "success");
+                        swal("Empresa agregada", "La empresa fue creada con éxito" , "success");
                     </script>
                     <%
                 }
@@ -79,11 +74,11 @@
                     </script>
                     <%
                 }
-        
+
                 session.removeAttribute("respuestaEmpresa");
             }
         %>
-        
-        <%@include file="footer.jsp" %>
-    </body>
-</html>
+    </main>
+
+    <jsp:include page="footer.jsp"/>
+</body>
