@@ -3,57 +3,56 @@
 <%@page import="Modelo.SrvProyecto_Service"%>
 <%@page import="Modelo.SrvTarea_Service"%>
 <%@page import="Modelo.Tarea"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Actualizar Tarea - Gantt Project</title>
-        
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    </head>
-    <body>
-        <%@include file="menu.jsp" %>
-        
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Actualizar Tarea - Gantt Project</title>
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+</head>
+<body>
+    <jsp:include page="menu.jsp"/>
+    
+    <main class="mt-5">
         <%
             Tarea tarea;
             Integer idTarea = Integer.parseInt(request.getParameter("idTarea"));
             SrvTarea_Service tareaService = new SrvTarea_Service();
-            
+
             tarea = tareaService.getSrvTareaPort().listarTareaPorID(idTarea);
 
         %>
-        
+
         <form name="frmTarea" action="srvUpdateTarea" method="POST" class="contenedor-formulario">
             <div>
                 <div class="formulario card border-primary">
                     <div class="card-header formulario-header">
                         <label class="p-2">Actualizar Tarea</label>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <!--<label class="p-2">ID del Tarea</label>-->
                             <input type="text" hidden value="<%= tarea.getIdTarea()%>" required class="form-control mb-2 input-readonly" id="idTarea" name="idTarea" />
                         </div>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Proyecto</label>
                             <!--<input type="text" required class="form-control mb-2" id="idProyecto" name="idProyecto" />-->
-                            
+
                             <select type="text" required class="form-control mb-2 lista-opciones" id="idProyecto" name="idProyecto">
-                                <option disabled>-- Seleccionar opciÃ³n --</option>
+                                <option disabled>-- Seleccionar opción --</option>
                                 <%
                                     SrvProyecto_Service proyectoService = new SrvProyecto_Service();
-                                    
+
                                     List<Proyecto> proyectos = proyectoService.getSrvProyectoPort().listarProyecto();
 
                                     for (int i = 0; i < proyectos.size(); i++) 
                                     {
                                         Proyecto p = proyectos.get(i);
-                                        
+
                                         if(p.getIdProyecto() == tarea.getIdProyecto()) 
                                         {
                                             %>
@@ -71,7 +70,7 @@
                             </select>
                         </div>
                     </div>    
-                        
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Nombre del Tarea</label>
@@ -103,30 +102,30 @@
                                                .toString();
                         }
                     %>
-                        
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Fecha de inicio</label>
                             <input type="date" value="<%= fechaInicio%>" required class="form-control mb-2" id="fechaInicio" name="fechaInicio" />
                         </div>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Fecha de finalizacion</label>
                             <input type="date" value="<%= fechaFin%>" required class="form-control mb-2" id="fechaFinalizacion" name="fechaFinalizacion" />
                         </div>
                     </div>
-                    
+
                     <div class="contenedor-btn">
                         <button type="submit" class="btn btn-primary btn-guardar">Actualizar</button>
                     </div>
 
                 </div>
             </div>
-            
+
         </form>
-        
+
            <%
                 Integer respuesta = (Integer) session.getAttribute("respuestaTarea");
                 if (respuesta != null) {
@@ -134,7 +133,7 @@
                     {
                         %>
                         <script>
-                            swal("Tarea agregado", "El proyecto fue creado con Ã©xito" , "success");
+                            swal("Tarea agregado", "El proyecto fue creado con éxito" , "success");
                         </script>
                         <%
                     }
@@ -149,7 +148,7 @@
                     session.removeAttribute("respuestaTarea");
                 }
             %>
-            
-            <%@include file="footer.jsp" %>
-    </body>
-</html>
+    </main>
+
+    <jsp:include page="footer.jsp"/>
+</body>

@@ -1,39 +1,38 @@
 <%@page import="Modelo.Proyecto"%>
 <%@page import="java.util.List"%>
 <%@page import="Modelo.SrvProyecto_Service"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gantt Project - Nueva Tarea</title>
-        
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    </head>
-    <body>
-        <%@include file="menu.jsp" %>
-        
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Gantt Project - Nueva Tarea</title>
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+</head>
+<body>
+    <jsp:include page="menu.jsp"/>
+    
+    <main class="mt-5">
         <form name="frmTarea" action="srvInsertTarea" method="POST" class="contenedor-formulario">
             <div>
                 <div class="formulario card border-primary">
                     <div class="card-header formulario-header">
                         <label class="p-2">Nueva Tarea</label>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Nombre de la Tarea</label>
                             <input type="text" required class="form-control mb-2" id="nombre" name="nombre" />
                         </div>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Proyecto</label>
                             <!--<input type="text" required class="form-control mb-2" id="idProyecto" name="idProyecto" />-->
-                            
+
                             <select type="text" required class="form-control mb-2 lista-opciones" id="idProyecto" name="idProyecto">
-                                <option selected disabled>-- Seleccionar opciÃ³n --</option>
+                                <option selected disabled>-- Seleccionar opción --</option>
                                 <%
                                     SrvProyecto_Service proyectoService = new SrvProyecto_Service();
 
@@ -45,7 +44,7 @@
 
                                         %>
                                         <option value="<%= p.getIdProyecto() %>"><%= p.getNombre() %></option>
-                                        
+
                                         <%
                                     }
                                 %>
@@ -66,23 +65,23 @@
                             <input type="date" required class="form-control mb-2" id="fechaInicio" name="fechaInicio" />
                         </div>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Fecha de finalizacion</label>
                             <input type="date" required class="form-control mb-2" id="fechaFinalizacion" name="fechaFinalizacion" />
                         </div>
                     </div>
-                    
+
                     <div class="contenedor-btn">
                         <button type="submit" class="btn btn-primary btn-guardar">Guardar</button>
                     </div>
 
                 </div>
             </div>
-            
+
         </form>
-        
+
         <%
             Integer respuesta = (Integer) session.getAttribute("respuestaTarea");
             if (respuesta != null) {
@@ -90,7 +89,7 @@
                 {
                     %>
                     <script>
-                        swal("Tarea agregada", "La tarea fue creada con Ã©xito", "success");
+                        swal("Tarea agregada", "La tarea fue creada con éxito", "success");
                     </script>
                     <%
                 } 
@@ -105,7 +104,8 @@
                 session.removeAttribute("respuestaTarea");
             }
         %>
-        
-        <%@include file="footer.jsp" %>
-    </body>
-</html>
+    </main>
+
+    <jsp:include page="footer.jsp"/>
+</body>
+

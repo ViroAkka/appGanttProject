@@ -1,18 +1,14 @@
 <%@page import="Modelo.Tarea"%>
 <%@page import="Modelo.SrvTarea_Service"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Mantenimiento de Tarea - Gantt Project</title>
-        
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    </head>
-    <body>
-        <%@include file="menu.jsp" %>
-        
+
+<head>
+    <title>Mantenimiento de Tarea - Gantt Project</title>
+</head>
+<body>
+    <jsp:include page="menu.jsp"/>
+    
+    <main>
         <h2 class="table-title">Mantenimiento de Tareas</h2>
         <form method="post" action="srvBusquedaTarea" class="contenedor tabla-mantenimiento">
             <div class="card border-primary tabla-principal">
@@ -36,7 +32,7 @@
                             <th><b>ID Tarea</b></th>
                             <th><b>ID Proyecto</b></th>
                             <th><b>Nombre</b></th>
-                            <th><b>DescripciÃ³n</b></th>
+                            <th><b>Descripción</b></th>
                             <th><b>Fecha de Inicio</b></th>
                             <th><b>Fecha de Fin</b></th>
                             <th></th>
@@ -46,13 +42,13 @@
 
                     <tbody class="datos">
                         <%
-                            
+
                             SrvTarea_Service tareaService = new SrvTarea_Service();
-                            
+
                             if (request.getAttribute("idTarea") != null) 
                             {
                                 int idTarea = Integer.parseInt(request.getAttribute("idTarea").toString());
-                                
+
                                 Tarea t = tareaService.getSrvTareaPort().listarTareaPorID(idTarea);
                                 %> 
                                     <tr>
@@ -70,7 +66,7 @@
                             else 
                             {
                                 List<Tarea> tareas = tareaService.getSrvTareaPort().listarTarea();
-                            
+
                                 for(int i = 0; i < tareas.size(); i++) 
                                 {
                                     Tarea t = tareas.get(i);
@@ -88,12 +84,13 @@
                                     <%
                                 }
                             }
-                            
+
                         %>
                     </tbody>
                 </table>
             </div>
         </form>
-        <%@include file="footer.jsp" %>
-    </body>
-</html>
+    </main>
+
+    <jsp:include page="footer.jsp"/>
+</body>
