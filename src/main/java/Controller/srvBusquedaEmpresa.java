@@ -26,19 +26,17 @@ public class srvBusquedaEmpresa extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
              
             RequestDispatcher rd = null;
-
             String idEmpresaParam = request.getParameter("idEmpresa");
-            int idEmpresa = 0;
-
+            
             if (idEmpresaParam != null && !idEmpresaParam.trim().isEmpty()) {
                 try {
-                    idEmpresa = Integer.parseInt(idEmpresaParam);
+                    int idEmpresa = Integer.parseInt(idEmpresaParam);
+                    request.setAttribute("idEmpresa", idEmpresa);
                 } catch (NumberFormatException e) {
-                    idEmpresaParam = null;
+                     request.removeAttribute("idEmpresa");
                 }
             }
-
-            request.setAttribute("idEmpresa", idEmpresa);
+            
             rd = request.getRequestDispatcher("mantenimientoEmpresa.jsp");
             rd.forward(request, response);
             

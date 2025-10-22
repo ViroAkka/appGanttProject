@@ -49,7 +49,8 @@
                                 int idEmpresa = Integer.parseInt(request.getAttribute("idEmpresa").toString());
 
                                 Empresa e = empresaService.getSrvEmpresaPort().listarEmpresaPorID(idEmpresa);
-                                %> 
+                                if (e != null) {
+                                    %>
                                     <tr>
                                         <td scope="row"><%= e.getIdEmpresa() %></td>
                                         <td scope="row"><%= e.getNombre()%></td>
@@ -60,6 +61,22 @@
                                         <td scope="row"><a href="deleteEmpresa.jsp?idEmpresa=<%= e.getIdEmpresa() %>" class="btn btn-danger">Eliminar</a></td>
                                     </tr>
                                     <%
+                                } else {
+                                    List<Empresa> empresas = empresaService.getSrvEmpresaPort().listarEmpresa();
+                                    for (Empresa emp : empresas) {
+                                    %>
+                                    <tr>
+                                        <td scope="row"><%= emp.getIdEmpresa() %></td>
+                                        <td scope="row"><%= emp.getNombre()%></td>
+                                        <td scope="row"><%= emp.getRepresentanteLegal()%></td>
+                                        <td scope="row"><%= emp.getDireccion()%></td>
+                                        <td scope="row"><%= emp.getTipoEmpresa() %></td>
+                                        <td scope="row"><a href="updateEmpresa.jsp?idEmpresa=<%= emp.getIdEmpresa() %>" class="btn btn-primary">Actualizar</a></td>
+                                        <td scope="row"><a href="deleteEmpresa.jsp?idEmpresa=<%= emp.getIdEmpresa() %>" class="btn btn-danger">Eliminar</a></td>
+                                    </tr>
+                                    <%
+                                    }
+                                }
                             }
                             else 
                             {
