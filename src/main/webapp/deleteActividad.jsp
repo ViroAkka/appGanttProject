@@ -5,63 +5,59 @@
 <%@page import="Modelo.SrvProyecto_Service"%>
 <%@page import="Modelo.SrvActividad_Service"%>
 <%@page import="Modelo.Actividad"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Actualizar Actividad - Gantt Project</title>
-        
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    </head>
-    <body>
-        <%@include file="menu.jsp" %>
-        
+
+<head>
+    <title>Actualizar Actividad - Gantt Project</title>
+</head>
+<body>
+    <jsp:include page="menu.jsp"/>
+
+    <main class="mt-5">
         <%
             Actividad actividad;
             Integer idActividad = Integer.parseInt(request.getParameter("idActividad"));
             SrvActividad_Service actividadService = new SrvActividad_Service();
-            
+
             actividad = actividadService.getSrvActividadPort().listarActividadPorID(idActividad);
-            
-            // debug rÃ¡pido: verifica que 'actividad' exista y su id
+
+            // debug rápido: verifica que 'actividad' exista y su id
             //if (actividad == null) {
             //    out.println("<div style='color:red'>DEBUG: actividad es NULL</div>");
             //} else {
             //    out.println("<div style='color:green'>DEBUG: actividad.getIdTarea() = " + actividad.getIdTarea() + "</div>");
             //}
         %>
-        
+
         <form name="frmActividad" action="srvDeleteActividad" method="POST" class="contenedor-formulario">
             <div>
                 <div class="formulario card border-primary">
                     <div class="card-header formulario-header">
                         <label class="p-2">Eliminar Actividad</label>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <!--<label class="p-2">ID del Actividad</label>-->
                             <input type="text" hidden value="<%= actividad.getIdActividad()%>" required class="form-control mb-2 input-readonly" id="idActividad" name="idActividad" />
                         </div>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Tarea - Proyecto</label>
                             <select type="text" required class="form-control mb-2 lista-opciones" id="idTarea" name="idTarea">
-                                <option disabled >-- Seleccionar opciÃ³n --</option>
+                                <option disabled >-- Seleccionar opción --</option>
                                 <%
                                     SrvTarea_Service tareaService = new SrvTarea_Service();
                                     SrvProyecto_Service proyectoService = new SrvProyecto_Service();
-                                    
+
                                     List<Tarea> tareas = tareaService.getSrvTareaPort().listarTarea();
-                                    
+
                                     for (int i = 0; i < tareas.size(); i++) 
                                     {
                                         Tarea t = tareas.get(i);
                                         Proyecto p = proyectoService.getSrvProyectoPort().listarProyectoPorID(t.getIdProyecto());
-                                        
+
                                         if(t.getIdTarea() == actividad.getIdTarea()) 
                                         {
                                             %>
@@ -79,7 +75,7 @@
                             </select>
                         </div>
                     </div>    
-                        
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Nombre de la Actividad</label>
@@ -111,30 +107,30 @@
                                                .toString();
                         }
                     %>
-                        
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Fecha de inicio</label>
                             <input type="date" value="<%= fechaInicio%>" required class="form-control mb-2" id="fechaInicio" name="fechaInicio" />
                         </div>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Fecha de finalizacion</label>
                             <input type="date" value="<%= fechaFin%>" required class="form-control mb-2" id="fechaFinalizacion" name="fechaFinalizacion" />
                         </div>
                     </div>
-                    
+
                     <div class="contenedor-btn">
                         <button type="submit" class="btn btn-primary btn-guardar">Eliminar</button>
                     </div>
 
                 </div>
             </div>
-            
+
         </form>
-        
+
            <%
                 Integer respuesta = (Integer) session.getAttribute("respuestaActividad");
                 if (respuesta != null) {
@@ -142,7 +138,7 @@
                     {
                         %>
                         <script>
-                            swal("Actividad agregado", "El proyecto fue creado con Ã©xito" , "success");
+                            swal("Actividad agregado", "El proyecto fue creado con éxito" , "success");
                         </script>
                         <%
                     }
@@ -157,6 +153,7 @@
                     session.removeAttribute("respuestaActividad");
                 }
             %>
-            <%@include file="footer.jsp" %>
-    </body>
-</html>
+    </main>
+
+    <jsp:include page="footer.jsp"/>
+</body>

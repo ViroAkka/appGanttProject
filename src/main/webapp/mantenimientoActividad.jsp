@@ -1,18 +1,14 @@
 <%@page import="Modelo.Actividad"%>
 <%@page import="Modelo.SrvActividad_Service"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Mantenimiento de Actividad - Gantt Project</title>
-        
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    </head>
-    <body>
-        <%@include file="menu.jsp" %>
-        
+
+<head>
+    <title>Mantenimiento de Actividad - Gantt Project</title>
+</head>
+<body>
+    <jsp:include page="menu.jsp"/>
+
+    <main>
         <h2 class="table-title">Mantenimiento de Actividades</h2>
         <form method="post" action="srvBusquedaActividad" class="contenedor tabla-mantenimiento">
             <div class="card border-primary tabla-principal">
@@ -36,7 +32,7 @@
                             <th><b>ID Actividad</b></th>
                             <th><b>ID Tarea</b></th>
                             <th><b>Nombre</b></th>
-                            <th><b>DescripciÃ³n</b></th>
+                            <th><b>Descripción</b></th>
                             <th><b>Fecha de Inicio</b></th>
                             <th><b>Fecha de Fin</b></th>
                             <th></th>
@@ -46,13 +42,13 @@
 
                     <tbody class="datos">
                         <%
-                            
+
                             SrvActividad_Service actividadService = new SrvActividad_Service();
-                            
+
                             if (request.getAttribute("idActividad") != null) 
                             {
                                 int idActividad = Integer.parseInt(request.getAttribute("idActividad").toString());
-                                
+
                                 Actividad t = actividadService.getSrvActividadPort().listarActividadPorID(idActividad);
                                 %> 
                                     <tr>
@@ -70,7 +66,7 @@
                             else 
                             {
                                 List<Actividad> actividades = actividadService.getSrvActividadPort().listarActividad();
-                            
+
                                 for(int i = 0; i < actividades.size(); i++) 
                                 {
                                     Actividad t = actividades.get(i);
@@ -88,13 +84,13 @@
                                     <%
                                 }
                             }
-                            
+
                         %>
                     </tbody>
                 </table>
             </div>
         </form>
-                    
-        <%@include file="footer.jsp" %>
-    </body>
-</html>
+    </main>
+
+        <jsp:include page="footer.jsp"/>
+</body>
