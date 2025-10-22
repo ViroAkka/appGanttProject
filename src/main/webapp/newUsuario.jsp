@@ -1,44 +1,40 @@
 <%@page import="Modelo.Empresa"%>
 <%@page import="Modelo.SrvEmpresa_Service"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gantt Project - Nuevo Usuario</title>
-        
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    </head>
-    <body>
-        <%@include file="menu.jsp" %>
-        
+
+<head>
+    <title>Gantt Project - Nuevo Usuario</title>
+</head>
+<body>
+    <jsp:include page="menu.jsp"/>
+
+    <main class="mt-5">
         <form name="frmUsuario" action="srvInsertUsuario" method="POST" class="contenedor-formulario">
             <div>
                 <div class="formulario card border-primary">
                     <div class="card-header formulario-header">
                         <label class="p-2">Nuevo Usuario</label>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Nombre del Usuario</label>
                             <input type="text" required class="form-control mb-2" id="nombre" name="nombre" />
                         </div>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Apellido del Usuario</label>
                             <input type="text" required class="form-control mb-2" id="apellido" name="apellido" />
                         </div>
                     </div>
-                    
+
                     <div class="col" align="center">
                         <div class="form-group">
                             <label class="p-2">Empresa</label>
                             <select type="text" required class="form-control mb-2 lista-opciones" id="idEmpresa" name="idEmpresa">
-                                <option selected disabled>-- Seleccionar opciÃ³n --</option>
+                                <option selected disabled>-- Seleccionar opción --</option>
                                 <%
                                     SrvEmpresa_Service empresaService = new SrvEmpresa_Service();
 
@@ -50,7 +46,7 @@
 
                                         %>
                                         <option value="<%= e.getIdEmpresa()%>"><%= e.getNombre() %></option>
-                                        
+
                                         <%
                                     }
                                 %>
@@ -67,11 +63,11 @@
 
                     <div class="col" align="center">
                         <div class="form-group">
-                            <label class="p-2">ContraseÃ±a</label>
-                            <input type="password" required class="form-control mb-2" id="contraseÃ±a_hash" name="contraseÃ±a_hash" />
+                            <label class="p-2">Contraseña</label>
+                            <input type="password" required class="form-control mb-2" id="contraseña_hash" name="contraseña_hash" />
                         </div>
                     </div>
-                    
+
                     <div class="contenedor-btn">
                         <button type="submit" class="btn btn-primary btn-guardar">Guardar</button>
                     </div>
@@ -79,7 +75,7 @@
                 </div>
             </div>
         </form>
-        
+
         <%
             Integer respuesta = (Integer) session.getAttribute("respuestaUsuario");
             if (respuesta != null) {
@@ -87,7 +83,7 @@
                 {
                     %>
                     <script>
-                        swal("Usuario agregado", "El Usuario fue creado con Ã©xito", "success");
+                        swal("Usuario agregado", "El Usuario fue creado con éxito", "success");
                     </script>
                     <%
                 } 
@@ -102,7 +98,8 @@
                 session.removeAttribute("respuestaUsuario");
             }
         %>
-        
-        <%@include file="footer.jsp" %>
-    </body>
-</html>
+    </main>
+
+    <jsp:include page="footer.jsp"/>
+</body>
+

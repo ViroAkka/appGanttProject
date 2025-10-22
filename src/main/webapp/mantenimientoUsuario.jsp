@@ -1,18 +1,14 @@
 <%@page import="Modelo.Usuario"%>
 <%@page import="Modelo.SrvUsuario_Service"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Mantenimiento de Usuario - Gantt Project</title>
-        
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    </head>
-    <body>
-        <%@include file="menu.jsp" %>
-        
+
+<head>
+    <title>Mantenimiento de Usuario - Gantt Project</title>
+</head>
+<body>
+    <jsp:include page="menu.jsp"/>
+
+    <main>
         <h2 class="table-title">Mantenimiento de Usuarios</h2>
         <form method="post" action="srvBusquedaUsuario" class="contenedor tabla-mantenimiento">
             <div class="card border-primary tabla-principal">
@@ -37,7 +33,7 @@
                             <th><b>ID Empresa</b></th>
                             <th><b>Nombre</b></th>
                             <th><b>Apellido</b></th>
-                            <th><b>Correo electrÃ³nico</b></th>
+                            <th><b>Correo electrónico</b></th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -45,15 +41,15 @@
 
                     <tbody class="datos">
                         <%
-                            
+
                             SrvUsuario_Service usuarioService = new SrvUsuario_Service();
-                            
+
                             if (request.getAttribute("idUsuario") != null) 
                             {
                                 int idUsuario = Integer.parseInt(request.getAttribute("idUsuario").toString());
-                                
+
                                 Usuario u = usuarioService.getSrvUsuarioPort().listarUsuarioPorID(idUsuario);
-                                
+
                                 if(u.getIdUsuario() != 3)
                                 {
                                     %> 
@@ -72,11 +68,11 @@
                             else 
                             {
                                 List<Usuario> usuarios = usuarioService.getSrvUsuarioPort().listarUsuario();
-                            
+
                                 for(int i = 0; i < usuarios.size(); i++) 
                                 {
                                     Usuario u = usuarios.get(i);
-                                    
+
                                     if(u.getIdUsuario() != 3)
                                     {
                                         %> 
@@ -98,6 +94,7 @@
                 </table>
             </div>
         </form>
-        <%@include file="footer.jsp" %>
-    </body>
-</html>
+    </main>
+
+    <jsp:include page="footer.jsp"/>
+</body>
