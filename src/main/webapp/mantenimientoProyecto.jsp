@@ -1,18 +1,17 @@
 <%@page import="Modelo.SrvProyecto_Service"%>
 <%@page import="Modelo.Proyecto"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Mantenimiento de Proyecto - Gantt Project</title>
-        
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    </head>
-    <body>
-        <%@include file="menu.jsp" %>
-        
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Mantenimiento de Proyecto - Gantt Project</title>
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+</head>
+<body>
+    <jsp:include page="menu.jsp"/>
+
+    <main>
         <h2 class="table-title">Mantenimiento de Proyectos</h2>
         <form method="post" action="srvBusquedaProyecto" class="contenedor tabla-mantenimiento">
             <div class="card border-primary tabla-principal">
@@ -36,7 +35,7 @@
                             <th><b>ID Proyecto</b></th>
                             <th><b>ID Empresa</b></th>
                             <th><b>Nombre</b></th>
-                            <th><b>DescripciÃ³n</b></th>
+                            <th><b>Descripción</b></th>
                             <th><b>Fecha de Inicio</b></th>
                             <th><b>Fecha de Fin</b></th>
                             <th></th>
@@ -46,13 +45,13 @@
 
                     <tbody class="datos">
                         <%
-                            
+
                             SrvProyecto_Service proyectoService = new SrvProyecto_Service();
-                            
+
                             if (request.getAttribute("idProyecto") != null) 
                             {
                                 int idProyecto = Integer.parseInt(request.getAttribute("idProyecto").toString());
-                                
+
                                 Proyecto p = proyectoService.getSrvProyectoPort().listarProyectoPorID(idProyecto);
                                 %> 
                                     <tr>
@@ -70,7 +69,7 @@
                             else 
                             {
                                 List<Proyecto> proyectos = proyectoService.getSrvProyectoPort().listarProyecto();
-                            
+
                                 for(int i = 0; i < proyectos.size(); i++) 
                                 {
                                     Proyecto p = proyectos.get(i);
@@ -93,7 +92,8 @@
                 </table>
             </div>
         </form>
-                    
-        <%@include file="footer.jsp" %>
-    </body>
-</html>
+    </main>
+    
+    <jsp:include page="footer.jsp"/>
+</body>
+

@@ -1,3 +1,21 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal de la página */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* altura mínima igual al alto de la ventana */
+}
+
+/* El contenido principal debe crecer para empujar el footer */
+main {
+  flex: 1;
+}
+
 /* From Uiverse.io by Yaya12085 */ 
 .form-container {
   width: 320px;
