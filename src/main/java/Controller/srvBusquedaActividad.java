@@ -25,19 +25,17 @@ public class srvBusquedaActividad extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 
             RequestDispatcher rd = null;
-
             String idActividadParam = request.getParameter("idActividad");
-            int idActividad = 0;
-
+            
             if (idActividadParam != null && !idActividadParam.trim().isEmpty()) {
                 try {
-                    idActividad = Integer.parseInt(idActividadParam);
+                    int idActividad = Integer.parseInt(idActividadParam);
+                    request.setAttribute("idActividad", idActividad);
                 } catch (NumberFormatException e) {
-                    idActividadParam = null;
+                    request.removeAttribute("idActividad");
                 }
             }
 
-            request.setAttribute("idActividad", idActividad);
             rd = request.getRequestDispatcher("mantenimientoActividad.jsp");
             rd.forward(request, response);
             

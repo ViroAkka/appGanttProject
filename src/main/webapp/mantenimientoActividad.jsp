@@ -48,20 +48,44 @@
                             if (request.getAttribute("idActividad") != null) 
                             {
                                 int idActividad = Integer.parseInt(request.getAttribute("idActividad").toString());
-
-                                Actividad t = actividadService.getSrvActividadPort().listarActividadPorID(idActividad);
-                                %> 
+                                Actividad a = actividadService.getSrvActividadPort().listarActividadPorID(idActividad);
+                                
+                                if (a != null) 
+                                {
+                                    %> 
                                     <tr>
-                                        <td scope="row"><%= t.getIdActividad() %></td>
-                                        <td scope="row"><%= t.getIdTarea()%></td>
-                                        <td scope="row"><%= t.getNombre() %></td>
-                                        <td scope="row"><%= t.getDescripcion() %></td>
-                                        <td scope="row"><%= t.getFechaInicio().toString().substring(0, 10) %></td>
-                                        <td scope="row"><%= t.getFechaFinalizacion().toString().substring(0, 10) %></td>
-                                        <td scope="row"><a href="updateActividad.jsp?idActividad=<%= t.getIdActividad() %>" class="btn btn-primary">Actualizar</a></td>
-                                        <td scope="row"><a href="deleteActividad.jsp?idActividad=<%= t.getIdActividad() %>" class="btn btn-danger">Eliminar</a></td>
+                                        <td scope="row"><%= a.getIdActividad() %></td>
+                                        <td scope="row"><%= a.getIdTarea()%></td>
+                                        <td scope="row"><%= a.getNombre() %></td>
+                                        <td scope="row"><%= a.getDescripcion() %></td>
+                                        <td scope="row"><%= a.getFechaInicio().toString().substring(0, 10) %></td>
+                                        <td scope="row"><%= a.getFechaFinalizacion().toString().substring(0, 10) %></td>
+                                        <td scope="row"><a href="updateActividad.jsp?idActividad=<%= a.getIdActividad() %>" class="btn btn-primary">Actualizar</a></td>
+                                        <td scope="row"><a href="deleteActividad.jsp?idActividad=<%= a.getIdActividad() %>" class="btn btn-danger">Eliminar</a></td>
                                     </tr>
                                     <%
+                                }
+                                else
+                                {
+                                    List<Actividad> actividades = actividadService.getSrvActividadPort().listarActividad();
+
+                                    for(int i = 0; i < actividades.size(); i++) 
+                                    {
+                                        Actividad act = actividades.get(i);
+                                        %> 
+                                        <tr>
+                                            <td scope="row"><%= act.getIdActividad() %></td>
+                                            <td scope="row"><%= act.getIdTarea()%></td>
+                                            <td scope="row"><%= act.getNombre() %></td>
+                                            <td scope="row"><%= act.getDescripcion() %></td>
+                                            <td scope="row"><%= act.getFechaInicio().toString().substring(0, 10) %></td>
+                                            <td scope="row"><%= act.getFechaFinalizacion().toString().substring(0, 10) %></td>
+                                            <td scope="row"><a href="updateActividad.jsp?idActividad=<%= act.getIdActividad() %>" class="btn btn-primary">Actualizar</a></td>
+                                            <td scope="row"><a href="deleteActividad.jsp?idActividad=<%= act.getIdActividad() %>" class="btn btn-danger">Eliminar</a></td>
+                                        </tr>
+                                        <%
+                                    }
+                                }
                             }
                             else 
                             {
@@ -69,17 +93,17 @@
 
                                 for(int i = 0; i < actividades.size(); i++) 
                                 {
-                                    Actividad t = actividades.get(i);
+                                    Actividad a = actividades.get(i);
                                     %> 
                                     <tr>
-                                        <td scope="row"><%= t.getIdActividad() %></td>
-                                        <td scope="row"><%= t.getIdTarea()%></td>
-                                        <td scope="row"><%= t.getNombre() %></td>
-                                        <td scope="row"><%= t.getDescripcion() %></td>
-                                        <td scope="row"><%= t.getFechaInicio().toString().substring(0, 10) %></td>
-                                        <td scope="row"><%= t.getFechaFinalizacion().toString().substring(0, 10) %></td>
-                                        <td scope="row"><a href="updateActividad.jsp?idActividad=<%= t.getIdActividad() %>" class="btn btn-primary">Actualizar</a></td>
-                                        <td scope="row"><a href="deleteActividad.jsp?idActividad=<%= t.getIdActividad() %>" class="btn btn-danger">Eliminar</a></td>
+                                        <td scope="row"><%= a.getIdActividad() %></td>
+                                        <td scope="row"><%= a.getIdTarea()%></td>
+                                        <td scope="row"><%= a.getNombre() %></td>
+                                        <td scope="row"><%= a.getDescripcion() %></td>
+                                        <td scope="row"><%= a.getFechaInicio().toString().substring(0, 10) %></td>
+                                        <td scope="row"><%= a.getFechaFinalizacion().toString().substring(0, 10) %></td>
+                                        <td scope="row"><a href="updateActividad.jsp?idActividad=<%= a.getIdActividad() %>" class="btn btn-primary">Actualizar</a></td>
+                                        <td scope="row"><a href="deleteActividad.jsp?idActividad=<%= a.getIdActividad() %>" class="btn btn-danger">Eliminar</a></td>
                                     </tr>
                                     <%
                                 }
