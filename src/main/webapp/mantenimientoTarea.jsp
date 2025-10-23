@@ -48,9 +48,11 @@
                             if (request.getAttribute("idTarea") != null) 
                             {
                                 int idTarea = Integer.parseInt(request.getAttribute("idTarea").toString());
-
                                 Tarea t = tareaService.getSrvTareaPort().listarTareaPorID(idTarea);
-                                %> 
+                                
+                                if (t != null) 
+                                {
+                                    %> 
                                     <tr>
                                         <td scope="row"><%= t.getIdTarea() %></td>
                                         <td scope="row"><%= t.getIdProyecto()%></td>
@@ -62,6 +64,28 @@
                                         <td scope="row"><a href="deleteTarea.jsp?idTarea=<%= t.getIdTarea() %>" class="btn btn-danger">Eliminar</a></td>
                                     </tr>
                                     <%
+                                }
+                                else
+                                {
+                                    List<Tarea> tareas = tareaService.getSrvTareaPort().listarTarea();
+
+                                    for(int i = 0; i < tareas.size(); i++) 
+                                    {
+                                        Tarea tar = tareas.get(i);
+                                        %> 
+                                        <tr>
+                                            <td scope="row"><%= tar.getIdTarea() %></td>
+                                            <td scope="row"><%= tar.getIdProyecto()%></td>
+                                            <td scope="row"><%= tar.getNombre() %></td>
+                                            <td scope="row"><%= tar.getDescripcion() %></td>
+                                            <td scope="row"><%= tar.getFechaInicio().toString().substring(0, 10) %></td>
+                                            <td scope="row"><%= tar.getFechaFinalizacion().toString().substring(0, 10) %></td>
+                                            <td scope="row"><a href="updateTarea.jsp?idTarea=<%= tar.getIdTarea() %>" class="btn btn-primary">Actualizar</a></td>
+                                            <td scope="row"><a href="deleteTarea.jsp?idTarea=<%= tar.getIdTarea() %>" class="btn btn-danger">Eliminar</a></td>
+                                        </tr>
+                                        <%
+                                    }
+                                }
                             }
                             else 
                             {

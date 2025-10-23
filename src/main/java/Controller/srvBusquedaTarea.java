@@ -23,20 +23,19 @@ public class srvBusquedaTarea extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
             RequestDispatcher rd = null;
-
             String idTareaParam = request.getParameter("idTarea");
-            int idTarea = 0;
-
+            
             if (idTareaParam != null && !idTareaParam.trim().isEmpty()) {
                 try {
-                    idTarea = Integer.parseInt(idTareaParam);
+                    int idTarea = Integer.parseInt(idTareaParam);
+                    request.setAttribute("idTarea", idTarea);
                 } catch (NumberFormatException e) {
-                    idTareaParam = null;
+                    request.removeAttribute("idTarea");
                 }
             }
 
-            request.setAttribute("idTarea", idTarea);
             rd = request.getRequestDispatcher("mantenimientoTarea.jsp");
             rd.forward(request, response);
             
