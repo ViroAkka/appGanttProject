@@ -25,19 +25,17 @@ public class srvBusquedaUsuario extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             RequestDispatcher rd = null;
-
             String idUsuarioParam = request.getParameter("idUsuario");
-            int idUsuario = 0;
-
+            
             if (idUsuarioParam != null && !idUsuarioParam.trim().isEmpty()) {
                 try {
-                    idUsuario = Integer.parseInt(idUsuarioParam);
+                    int idUsuario = Integer.parseInt(idUsuarioParam);
+                    request.setAttribute("idUsuario", idUsuario);
                 } catch (NumberFormatException e) {
-                    idUsuarioParam = null;
+                    request.removeAttribute("idUsuario");
                 }
             }
 
-            request.setAttribute("idUsuario", idUsuario);
             rd = request.getRequestDispatcher("mantenimientoUsuario.jsp");
             rd.forward(request, response);
             

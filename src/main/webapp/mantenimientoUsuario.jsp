@@ -41,7 +41,6 @@
 
                     <tbody class="datos">
                         <%
-
                             SrvUsuario_Service usuarioService = new SrvUsuario_Service();
 
                             if (request.getAttribute("idUsuario") != null) 
@@ -49,20 +48,47 @@
                                 int idUsuario = Integer.parseInt(request.getAttribute("idUsuario").toString());
 
                                 Usuario u = usuarioService.getSrvUsuarioPort().listarUsuarioPorID(idUsuario);
-
-                                if(u.getIdUsuario() != 3)
+                                
+                                if (u != null) 
                                 {
-                                    %> 
-                                    <tr>
-                                        <td scope="row"><%= u.getIdUsuario() %></td>
-                                        <td scope="row"><%= u.getIdEmpresa()%></td>
-                                        <td scope="row"><%= u.getNombre() %></td>
-                                        <td scope="row"><%= u.getApellido()%></td>
-                                        <td scope="row"><%= u.getEmail() %></td>
-                                        <td scope="row"><a href="updateUsuario.jsp?idUsuario=<%= u.getIdUsuario() %>" class="btn btn-primary">Actualizar</a></td>
-                                        <td scope="row"><a href="deleteUsuario.jsp?idUsuario=<%= u.getIdUsuario() %>" class="btn btn-danger">Eliminar</a></td>
-                                    </tr>
-                                    <%
+                                    if(u.getIdUsuario() != 3)
+                                    {
+                                        %> 
+                                        <tr>
+                                            <td scope="row"><%= u.getIdUsuario() %></td>
+                                            <td scope="row"><%= u.getIdEmpresa()%></td>
+                                            <td scope="row"><%= u.getNombre() %></td>
+                                            <td scope="row"><%= u.getApellido()%></td>
+                                            <td scope="row"><%= u.getEmail() %></td>
+                                            <td scope="row"><a href="updateUsuario.jsp?idUsuario=<%= u.getIdUsuario() %>" class="btn btn-primary">Actualizar</a></td>
+                                            <td scope="row"><a href="deleteUsuario.jsp?idUsuario=<%= u.getIdUsuario() %>" class="btn btn-danger">Eliminar</a></td>
+                                        </tr>
+                                        <%
+                                    }
+                                }
+                                else 
+                                {
+                                    List<Usuario> usuarios = usuarioService.getSrvUsuarioPort().listarUsuario();
+
+                                    for(int i = 0; i < usuarios.size(); i++) 
+                                    {
+                                        Usuario usr = usuarios.get(i);
+
+                                        if(usr.getIdUsuario() != 3)
+                                        {
+                                            %> 
+                                            <tr>
+                                                <td scope="row"><%= usr.getIdUsuario() %></td>
+                                                <td scope="row"><%= usr.getIdEmpresa()%></td>
+                                                <td scope="row"><%= usr.getNombre() %></td>
+                                                <td scope="row"><%= usr.getApellido()%></td>
+                                                <td scope="row"><%= usr.getEmail() %></td>
+                                                <td scope="row"><a href="updateUsuario.jsp?idUsuario=<%= usr.getIdUsuario() %>" class="btn btn-primary">Actualizar</a></td>
+                                                <td scope="row"><a href="deleteUsuario.jsp?idUsuario=<%= usr.getIdUsuario() %>" class="btn btn-danger">Eliminar</a></td>
+                                            </tr>
+                                            <%
+                                        }
+                                    }
                                 }
                             }
                             else 
