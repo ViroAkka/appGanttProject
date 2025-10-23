@@ -53,7 +53,9 @@
                                 int idProyecto = Integer.parseInt(request.getAttribute("idProyecto").toString());
 
                                 Proyecto p = proyectoService.getSrvProyectoPort().listarProyectoPorID(idProyecto);
-                                %> 
+                                if(p != null)
+                                {
+                                    %> 
                                     <tr>
                                         <td scope="row"><%= p.getIdProyecto() %></td>
                                         <td scope="row"><%= p.getIdEmpresa() %></td>
@@ -64,7 +66,29 @@
                                         <td scope="row"><a href="updateProyecto.jsp?idProyecto=<%= p.getIdProyecto() %>" class="btn btn-primary">Actualizar</a></td>
                                         <td scope="row"><a href="deleteProyecto.jsp?idProyecto=<%= p.getIdProyecto() %>" class="btn btn-danger">Eliminar</a></td>
                                     </tr>
-                                    <%
+                                    <%  
+                                }
+                                else 
+                                {
+                                    List<Proyecto> proyectos = proyectoService.getSrvProyectoPort().listarProyecto();
+
+                                for(int i = 0; i < proyectos.size(); i++) 
+                                {
+                                    Proyecto pr = proyectos.get(i);
+                                        %> 
+                                        <tr>
+                                            <td scope="row"><%= pr.getIdProyecto() %></td>
+                                            <td scope="row"><%= pr.getIdEmpresa() %></td>
+                                            <td scope="row"><%= pr.getNombre() %></td>
+                                            <td scope="row"><%= pr.getDescripcion() %></td>
+                                            <td scope="row"><%= pr.getFechaInicio().toString().substring(0, 10) %></td>
+                                            <td scope="row"><%= pr.getFechaFinalizacion().toString().substring(0, 10) %></td>
+                                            <td scope="row"><a href="updateProyecto.jsp?idProyecto=<%= pr.getIdProyecto() %>" class="btn btn-primary">Actualizar</a></td>
+                                            <td scope="row"><a href="deleteProyecto.jsp?idProyecto=<%= pr.getIdProyecto() %>" class="btn btn-danger">Eliminar</a></td>
+                                        </tr>
+                                        <%
+                                    }
+                                }
                             }
                             else 
                             {

@@ -41,7 +41,6 @@
 
                     <tbody class="datos">
                         <%
-
                             SrvEmpresa_Service empresaService = new SrvEmpresa_Service();
 
                             if (request.getAttribute("idEmpresa") != null) 
@@ -61,9 +60,13 @@
                                         <td scope="row"><a href="deleteEmpresa.jsp?idEmpresa=<%= e.getIdEmpresa() %>" class="btn btn-danger">Eliminar</a></td>
                                     </tr>
                                     <%
-                                } else {
+                                } 
+                                else 
+                                {
                                     List<Empresa> empresas = empresaService.getSrvEmpresaPort().listarEmpresa();
-                                    for (Empresa emp : empresas) {
+                                    for(int i = 0; i < empresas.size(); i++) 
+                                    {
+                                    Empresa emp = empresas.get(i);
                                     %>
                                     <tr>
                                         <td scope="row"><%= emp.getIdEmpresa() %></td>

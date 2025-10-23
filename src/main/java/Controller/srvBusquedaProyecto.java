@@ -27,24 +27,20 @@ public class srvBusquedaProyecto extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
                 
             RequestDispatcher rd = null;
-
             String idProyectoParam = request.getParameter("idProyecto");
-            int idProyecto = 0;
-
+            
             if (idProyectoParam != null && !idProyectoParam.trim().isEmpty()) {
                 try {
-                    idProyecto = Integer.parseInt(idProyectoParam);
+                    int idProyecto = Integer.parseInt(idProyectoParam);
+                    request.setAttribute("idProyecto", idProyecto);
                 } catch (NumberFormatException e) {
-                    idProyectoParam = null;
+                    request.removeAttribute("idProyecto");
                 }
             }
 
-            request.setAttribute("idProyecto", idProyecto);
             rd = request.getRequestDispatcher("mantenimientoProyecto.jsp");
             rd.forward(request, response);
 
-            
-            
 //            out.println("<!DOCTYPE html>");
 //            out.println("<html>");
 //            out.println("<head>");
